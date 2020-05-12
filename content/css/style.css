@@ -21,37 +21,23 @@ body {
 /* __________ RESUABLE COMPONENTS __________ */
 /* ------------------------------ */
 
-#overlay-main-menu {
+#overlay-main-menu, #overlay {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 9;
+    z-index: -1;
 
     background-color: #000000;
-    transition: 0.5s;
+    transition: 0.35s;
 
     opacity: 0;
 }
 
-#overlay-main-menu.active {
-    opacity: 0.95;
-}
-
-#overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9;
-
-    background-color: #000000;
-    opacity: 0;
-}
-
+#overlay-main-menu.active,
 #overlay.active {
+    z-index: 9;
     opacity: 0.95;
 }
 
@@ -128,10 +114,10 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: -1;
 
     height: 60vh;
     width: 50vw;
-    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,6 +131,7 @@ h1 {
 
 .main-menu-modal.active {
     opacity: 1;
+    z-index: 10;
 }
 
 .menu-play-btn {
@@ -288,11 +275,22 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    z-index: -1;
+
+    height: 50vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 5% 5% 5%;
     opacity: 0;
-    transition: 0.35s;
+
+    background-color: #131313;
+    border: 5px double #c81912;
+    border-radius: 15px;
 }
 .play-card-table-Modal.active {
+    z-index: 10;
     opacity: 1;
 }
 

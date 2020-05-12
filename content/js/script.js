@@ -1,8 +1,13 @@
 // ELEMENTS TO VARIABLE DECLARATIONS
 
 const mainMenu = document.querySelector('.main-menu-modal');
+const playDeckModalfunc = document.querySelector('.js-play-card-table-Modal');
+
 const overlayMainMenu = document.querySelector('#overlay-main-menu');
+const overlay = document.querySelector('#overlay');
+
 const playBtn = document.querySelector('.js-option-play');
+
 
 const P2CardRem = document.querySelector('.js-P2-card-rem');
 const P1CardRem = document.querySelector('.js-P1-card-rem');
@@ -13,11 +18,7 @@ const P1RowScore1 = document.querySelector('.js-P1-play-row-score');
 const P2RowScore2 = document.querySelector('.js-P2-play-row-2-score');
 const P1RowScore2 = document.querySelector('.js-P1-play-row-2-score');
 
-const playDeck = document.querySelector('.js-play-card-table');
-const p1playDeck = document.querySelector('.P1-play-deck');
 
-const playDeckModal = document.querySelector('.play-card-table-Modal');
-const playDeckModalfunc = document.querySelector('.js-play-card-table-Modal');
 
 
 
@@ -27,7 +28,19 @@ const playDeckModalfunc = document.querySelector('.js-play-card-table-Modal');
 
 
 // --------------------------------------------------
-// PROGRAM
+// DOM MANIPULATION
+// --------------------------------------------------
+
+// CREATE CARDS
+/*
+function createCardsEm () {
+    var createCardEm = '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + '1-' + pawnpt1_1 + '-card.png\">'  + '</div>' ,
+}
+
+*/
+
+// --------------------------------------------------
+// GAME CODE
 // --------------------------------------------------
 
 // REUSABLE COMPONENTS
@@ -63,6 +76,11 @@ playBtn.addEventListener('click', () => {
     create10xCards() ;
 });
 
+
+document.querySelector( 'js-play-deck-card' ).addEventListener( 'click', () => {
+    playDeckModal.classList.add('active');
+    overlay.classList.add('active');
+} ) ;
 
 
 //  __________ CARD GENERATION
@@ -138,8 +156,3 @@ function create10xCards() {
 
 
 // __________ POP-UP PLAYER'S DECK IN A MODAL for easy navigation
-
-document.querySelector('.js-play-deck-card').addEventListener('click', () => {
-    playDeckModal.classList.add = 'active' ;
-    playDeckModalfunc.innerHTML = 'p1playDeck' ;
-} )
