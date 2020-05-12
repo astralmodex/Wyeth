@@ -18,6 +18,8 @@ const P1RowScore1 = document.querySelector('.js-P1-play-row-score');
 const P2RowScore2 = document.querySelector('.js-P2-play-row-2-score');
 const P1RowScore2 = document.querySelector('.js-P1-play-row-2-score');
 
+const playDeck = document.querySelector('.play-card-table');
+
 
 
 
@@ -77,7 +79,7 @@ playBtn.addEventListener('click', () => {
 });
 
 
-document.querySelector( 'js-play-deck-card' ).addEventListener( 'click', () => {
+document.querySelector( '.js-play-deck-card' ).addEventListener( 'click', () => {
     playDeckModal.classList.add('active');
     overlay.classList.add('active');
 } ) ;
