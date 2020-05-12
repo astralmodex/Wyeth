@@ -141,5 +141,5 @@ function create10xCards() {
 
 document.querySelector('.js-play-deck-card').addEventListener('click', () => {
     playDeckModal.classList.add = 'active' ;
-    playDeckModalfunc.innerHTML = p1playDeck ;
+    playDeckModalfunc.innerHTML = 'p1playDeck' ;
 } )

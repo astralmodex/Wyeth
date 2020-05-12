@@ -288,20 +288,9 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 0.35s;
-
-    height: 50vh;
-    width: 60vw;
     z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2% 5% 5% 5%;
     opacity: 0;
-
-    background-color: #131313;
-    border: 5px double #c81912;
-    border-radius: 15px;
+    transition: 0.35s;
 }
 .play-card-table-Modal.active {
     opacity: 1;
