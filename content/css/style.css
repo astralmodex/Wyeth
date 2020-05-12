@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../img/background/1624.jpg);
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: 'Marvel', Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    cursor: default;
+}
+
+
+/* ------------------------------ */
+/* __________ RESUABLE COMPONENTS __________ */
+/* ------------------------------ */
+
+#overlay-main-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+
+    background-color: #000000;
+    transition: 0.5s;
+
+    opacity: 0;
+}
+
+#overlay-main-menu.active {
+    opacity: 0.95;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+
+    background-color: #000000;
+    opacity: 0;
+}
+
+#overlay.active {
+    opacity: 0.95;
+}
+
+
+
+/* ------------------------------ */
+/* __________ TEXT __________ */
+/* ------------------------------ */
+
+/* __________ HEADINGS __________ */
+
+h1 {
+    font-size: 500%;
+    text-align: center;
+    margin: 0;
+    color: #f00;
+}
+
+
+
+/* __________ TEXT __________ */
+
+.main-menu-modal p {
+    text-align: center;
+    font-size: 250%;
+    color: #f00;
+}
+
+.P1-name, .P2-name {
+    text-align: center;
+    padding: 5%;
+    font-size: 150%;
+
+    text-transform: uppercase;
+    color: #EEDB00;
+
+}
+
+.card-rem {
+    color: #EEDB00;
+    font-size: 300%;
+}
+
+
+/* __________ ICONS __________ */
+
+.fa-user-astronaut, .fa-skull {
+    font-size: 250%;
+    color: #EEDB00;
+}
+
+.score-gem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 300%;
+    color: #f00;
+}
+
+.fa-sd-card {
+    color: #EEDB00;
+    font-size: 300%;
+    margin: 0 0 5% 0;
+}
+
+
+
+/* ------------------------------ */
+/* __________ MAIN-MENU __________ */
+/* ------------------------------ */
+
+.main-menu-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 60vh;
+    width: 50vw;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 5% 5% 5%;
+    opacity: 0;
+
+    background-color: #131313;
+    border: 5px double #c81912;
+    border-radius: 15px;
+}
+
+.main-menu-modal.active {
+    opacity: 1;
+}
+
+.menu-play-btn {
+    color: #EEDB00;
+    margin: 10% 0 0 0;
+    padding: 1% 5% 1% 5%;
+    font-size: 175%;
+    cursor: pointer;
+}
+
+.menu-play-btn:hover,
+.menu-play-btn:active {
+    color: #cec997;
+    font-size: 200%;
+    transition: color 0.2s, font-size 0.2s;
+}
+
+.menu-play-btn:hover>.first-menu-word {
+    margin: 0 4px 0 0;
+    transition: margin 0.2s;
+}
+
+
+
+/* ------------------------------ */
+/* __________ HEADER __________ */
+/* ------------------------------ */
+
+header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #131313;
+    height: 90vh;
+    width: 75vw;
+
+    display: grid;
+    grid-template-rows: repeat(2, 39%) 20%;
+    row-gap: 2%;
+}
+
+.game-arena {
+    display: grid;
+    grid-template-columns: 69.5% 29.5%;
+    column-gap: 1%;
+    padding: 1%;
+}
+
+.play-area {
+    display: grid;
+    grid-template-rows: repeat(2, 48%);
+    row-gap: 4%;
+}
+
+
+
+
+
+/* ------------------------------ */
+/* __________ GAME-AREA __________ */
+/* ------------------------------ */
+
+.play-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 50px;
+    column-gap: 2%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.play-row:last-child {
+    border-top: 0;
+}
+
+.card-table,
+.play-card-table {
+    border: 5px double #9d0b0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #1b1b1b;
+    padding: 1%;
+    overflow: hidden;
+}
+
+.play-card {
+    float: left;
+    overflow: hidden;
+}
+
+.play-card img {
+    height: 100px;
+    width: 70px;
+    margin: 0 2px 0 0;
+}
+
+.special-card-slot,
+.graveyard-slot {
+    height: 100%;
+    width: 100%;
+    border: 5px double #9d0b0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.special-card-slot .play-card {
+    margin-right: 0;
+}
+
+.play-row-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 175%;
+    color: #EEDB00;
+    border: 5px double #9d0b0b;
+}
+
+
+
+/* ------------------------------ */
+/* __________ PLAYING-DECK __________ */
+/* ------------------------------ */
+
+.P1-play-deck {
+    display: grid;
+    grid-template-columns: 69.5% 10%;
+    column-gap: 2%;
+    padding: 1% 10% 2% 1%;
+}
+
+.play-card-table-Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.35s;
+
+    height: 50vh;
+    width: 60vw;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2% 5% 5% 5%;
+    opacity: 0;
+
+    background-color: #131313;
+    border: 5px double #c81912;
+    border-radius: 15px;
+}
+.play-card-table-Modal.active {
+    opacity: 1;
+}
+
+.play-card-table .play-card img {
+    height: 80px;
+    width: 60px;
+}
+
+.graveyard-slot {
+    height: 100%;
+    width: 100%;
+}
+
+.graveyard-slot .play-card img {
+    height: 80px;
+    width: 60px;
+}
+
+
+
+/* ------------------------------ */
+/* __________ PROFILE-COLUMN __________ */
+/* ------------------------------ */
+
+.profile-column {
+    border: 2px solid #c81912;
+    display: grid;
+    grid-template-rows: 40% 60%;
+}
+
+.P1-identity, .P2-identity {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    border-bottom: 2px solid #c81912;
+}
+
+.P1-img, .P2-img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-stats {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 2%;
+}
+
+.current-win-count {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+}
+
+.card-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
