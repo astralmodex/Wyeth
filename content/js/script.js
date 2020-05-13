@@ -22,6 +22,8 @@ const playDeck = document.querySelector('.js-play-card-table') ;
 
 const P1PlayDeck = document.querySelector('.P1-play-deck') ;
 
+const playDeckCard = document.querySelector('.js-play-deck-card') ;
+
 
 
 
@@ -46,6 +48,11 @@ function getRandomIntInclusive(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  overlay.addEventListener( 'click', () => {
+    overlay.classList.remove('active')
+    playDeckModal.classList.remove( 'active' )
+  } )
   
 
 
@@ -109,32 +116,24 @@ playBtn.addEventListener('click', () => {
 // CARD COLLECTION
 
 var cardCreate = {
-    cardPawn_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_1'] + 'pt-card.png\">'  + '</div>' ,
-    cardPawn_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_2'] + 'pt-card.png\">'  + '</div>' ,
-    cardPawn_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_3'] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\"' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_2: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_2'] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_3: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_3'] + 'pt-card.png\">'  + '</div>' ,
 
-    cardHeavy_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_1'] + 'pt-card.png\">'  + '</div>' ,
-    cardHeavy_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_2'] + 'pt-card.png\">'  + '</div>' ,
-    cardHeavy_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_3'] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_2: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_2'] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_3: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_3'] + 'pt-card.png\">'  + '</div>' ,
 
-    cardOfficer_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_1'] + 'pt-card.png\">'  + '</div>' ,
-    cardOfficer_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_2'] + 'pt-card.png\">'  + '</div>' ,
+    cardOfficer_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardOfficer_2: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_2'] + 'pt-card.png\">'  + '</div>' ,
 
-    cardGeneral_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['generalCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardGeneral_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['generalCard_1'] + 'pt-card.png\">'  + '</div>' ,
 
-    cardLord_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['lordCard_1'] + 'pt-card.png\">'  + '</div>'
+    cardLord_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['lordCard_1'] + 'pt-card.png\">'  + '</div>' ,
+/* NOT YET
+    cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'] + 'pt-card.png\">'  + '</div>' ,
 
-    cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'] + 'pt-card.png\">'  + '</div>'
-
-    cardFaction_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['faction_1'] + 'pt-card.png\">'  + '</div>'
-/*
-    cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'+ getRandomIntInclusive(1,3) + ''] + 'pt-card.png\">'  + '</div>' ,
-
-        cardFaction_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['factionCard_1'+ getRandomIntInclusive(1,3) + ''] + 'pt-card.png\">'  + '</div>' ,*/
-    /*
-    cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(0,2)] + 'pt-card.png\">'  + '</div>' ,
-    
-    cardFaction_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(0,2)] + 'pt-card.png\">'  + '</div>' ,  */
+    cardFaction_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['faction_1'] + 'pt-card.png\">'  + '</div>'*/
 }
 
 // __________ RANDOM CARD TYPE & STARTING DECK CREATION
@@ -146,6 +145,8 @@ var cardCreate = {
 
 function create10xCards() {
     playDeck.innerHTML = cardCreate.cardPawn_1 + cardCreate.cardPawn_2 + cardCreate.cardPawn_3 + cardCreate.cardHeavy_1 + cardCreate.cardHeavy_2 + cardCreate.cardHeavy_3 + cardCreate.cardOfficer_1 + cardCreate.cardOfficer_2 + cardCreate.cardGeneral_1 + cardCreate.cardLord_1 ;
+
+    playDeckModal.innerHTML = cardCreate.cardPawn_1 + cardCreate.cardPawn_2 + cardCreate.cardPawn_3 + cardCreate.cardHeavy_1 + cardCreate.cardHeavy_2 + cardCreate.cardHeavy_3 + cardCreate.cardOfficer_1 + cardCreate.cardOfficer_2 + cardCreate.cardGeneral_1 + cardCreate.cardLord_1 ;
 }
 
 
@@ -159,5 +160,29 @@ function create10xCards() {
 document.querySelector( '.P1-play-deck-ghost' ).addEventListener( 'click', () => {
     playDeckModal.classList.add( 'active' )
     overlay.classList.add('active')
-    playDeck.innerHTML = 
 } ) ;
+
+
+
+// __________ ENABLE DRAGGING CARDS for placing on ROWS
+
+function getImages(contentId) {
+    var content = document.getElementById(contentId);
+    // only one image, just return an item; or you can return an array
+    if (content) return document.getElementsByTagName('img')[0];
+
+const rowsfPlaceCards = document.querySelectorAll( '.card-table-P1' )
+console.log( draggableCards )
+
+draggableCards.forEach(draggable => {
+    draggable.addEventListener( 'dragstart', () )
+} )
+
+
+// __________ PLACE the DRAGGED CARDS ON ROWS
+
+/**/
+
+
+
+// __________ INSERT DROPPED CARD VALUES/POINTS into ROWSCORE

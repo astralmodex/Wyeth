@@ -220,20 +220,25 @@ header {
     overflow: hidden;
 }
 
-.play-card-table-Modal .play-card-table {
-    height: 40vh ;
-    width: 80vw ;
-}
-
 .play-card {
     float: left;
     overflow: hidden;
+}
+
+.js-play-deck-card {
+    cursor: pointer;
 }
 
 .play-card img {
     height: 100px;
     width: 70px;
     margin: 0 2px 0 0;
+}
+
+.js-play-deck-card img {
+    height: 175px ;
+    width: 100px ;
+    margin: 0 5px 0 0;
 }
 
 .special-card-slot,
@@ -284,10 +289,6 @@ header {
 
     height: 10vh ;
     width: 20vw ;
-    display: flex ;
-    flex-direction: column ;
-    align-items: center ;
-    justify-content: center;
     padding:2% ;
     opacity: 0;
 }
@@ -296,10 +297,15 @@ header {
     border: 5px double #c81912 ;
     border-radius: 15px ;
     transition: background-color 0.5s, border 0.5s, border-radius 0.5s, height 0.5s, width 0.5s;
-    height: 50vh ;
+    height: auto ;
     width: 90vw ;
     z-index: 10 ;
     opacity: 1 ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center;
+    padding: 5% ;
+    overflow: hidden;
 }
 
 .P1-play-deck-ghost {
