@@ -14,6 +14,7 @@ body {
     font-family: 'Marvel', Arial, Helvetica, sans-serif;
     color: #ffffff;
     cursor: default;
+    overflow: hidden;
 }
 
 
@@ -23,10 +24,10 @@ body {
 
 #overlay-main-menu, #overlay {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: -50%;
+    left: -50%;
+    width: 500vw;
+    height:500vh;
     z-index: -1;
 
     background-color: #000000;
@@ -35,8 +36,7 @@ body {
     opacity: 0;
 }
 
-#overlay-main-menu.active,
-#overlay.active {
+#overlay-main-menu.active, #overlay.active {
     z-index: 9;
     opacity: 0.95;
 }
@@ -220,6 +220,11 @@ header {
     overflow: hidden;
 }
 
+.play-card-table-Modal .play-card-table {
+    height: 40vh ;
+    width: 80vw ;
+}
+
 .play-card {
     float: left;
     overflow: hidden;
@@ -271,28 +276,46 @@ header {
 }
 
 .play-card-table-Modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.5s;
-    z-index: -1;
+    position: absolute ;
+    top: 50% ;
+    left: 50% ;
+    transform: translate(-50%, -50%) ;
+    z-index: -1 ;
 
-    height: 50vh;
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2% 5% 5% 5%;
+    height: 10vh ;
+    width: 20vw ;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    justify-content: center;
+    padding:2% ;
     opacity: 0;
-
-    background-color: #131313;
-    border: 5px double #c81912;
-    border-radius: 15px;
 }
 .play-card-table-Modal.active {
-    z-index: 10;
-    opacity: 1;
+    background-color: #131313 ;
+    border: 5px double #c81912 ;
+    border-radius: 15px ;
+    transition: background-color 0.5s, border 0.5s, border-radius 0.5s, height 0.5s, width 0.5s;
+    height: 50vh ;
+    width: 90vw ;
+    z-index: 10 ;
+    opacity: 1 ;
+}
+
+.P1-play-deck-ghost {
+    position: absolute;
+    top: 91% ;
+    left: 32% ;
+    transform: translate(-50%, -50%);
+
+    display: block;
+    width: 615px;
+    height: 83px;
+    background-color: transparent;
+    padding: 1%;
+    overflow: hidden;
+    z-index: 5;
+    opacity: 0.5;
 }
 
 .play-card-table .play-card img {

@@ -20,6 +20,7 @@ const P1RowScore2 = document.querySelector('.js-P1-play-row-2-score') ;
 
 const playDeck = document.querySelector('.js-play-card-table') ;
 
+const P1PlayDeck = document.querySelector('.P1-play-deck') ;
 
 
 
@@ -31,17 +32,6 @@ const playDeck = document.querySelector('.js-play-card-table') ;
 
 
 
-
-
-// --------------------------------------------------
-// DOM MANIPULATION
-// --------------------------------------------------
-
-// __________ POP-UP PLAYER'S DECK IN A MODAL for easy navigation
-document.querySelector('.js-play-deck-card').addEventListener( 'click', () => {
-    playDeckModal.classList.add( 'active' )
-    overlay.classList.add('active');
-} ) ;
 
 
 
@@ -77,9 +67,9 @@ function init() {
 
 
 playBtn.addEventListener('click', () => {
-    mainMenu.style.display = 'none' ;
-    overlayMainMenu.classList.remove('active');
-    create10xCards() ;
+    mainMenu.style.display = 'none' 
+    overlayMainMenu.classList.remove('active')
+    create10xCards()
 });
 
 
@@ -156,3 +146,14 @@ function create10xCards() {
 
 
 
+// --------------------------------------------------
+// DOM MANIPULATION
+// --------------------------------------------------
+
+// __________ POP-UP PLAYER'S DECK IN A MODAL for easy navigation
+
+document.querySelector( '.P1-play-deck-ghost' ).addEventListener( 'click', () => {
+    playDeckModal.classList.add( 'active' )
+    overlay.classList.add('active')
+    playDeckModal.classList.add( 'P1-play-deck' )
+} ) ;
