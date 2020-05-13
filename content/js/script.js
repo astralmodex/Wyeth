@@ -123,6 +123,10 @@ var cardCreate = {
     cardGeneral_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['generalCard_1'] + 'pt-card.png\">'  + '</div>' ,
 
     cardLord_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['lordCard_1'] + 'pt-card.png\">'  + '</div>'
+
+    cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'] + 'pt-card.png\">'  + '</div>'
+
+    cardFaction_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['faction_1'] + 'pt-card.png\">'  + '</div>'
 /*
     cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'+ getRandomIntInclusive(1,3) + ''] + 'pt-card.png\">'  + '</div>' ,
 
@@ -155,5 +159,5 @@ function create10xCards() {
 document.querySelector( '.P1-play-deck-ghost' ).addEventListener( 'click', () => {
     playDeckModal.classList.add( 'active' )
     overlay.classList.add('active')
-    playDeckModal.classList.add( 'P1-play-deck' )
+    playDeck.innerHTML = 
 } ) ;
