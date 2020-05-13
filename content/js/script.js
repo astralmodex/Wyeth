@@ -1,7 +1,7 @@
 // ELEMENTS TO VARIABLE DECLARATIONS
 
 const mainMenu = document.querySelector('.main-menu-modal') ;
-const playDeckModal = document.querySelector('.js-play-card-table-Modal') ;
+const playDeckModal = document.querySelector('.play-card-table-Modal') ;
 
 const overlayMainMenu = document.querySelector('#overlay-main-menu') ;
 const overlay = document.querySelector('#overlay') ;
@@ -30,6 +30,18 @@ const playDeck = document.querySelector('.js-play-card-table') ;
 
 
 
+
+
+
+// --------------------------------------------------
+// DOM MANIPULATION
+// --------------------------------------------------
+
+// __________ POP-UP PLAYER'S DECK IN A MODAL for easy navigation
+document.querySelector('.js-play-deck-card').addEventListener( 'click', () => {
+    playDeckModal.classList.add( 'active' )
+    overlay.classList.add('active');
+} ) ;
 
 
 
@@ -70,64 +82,61 @@ playBtn.addEventListener('click', () => {
     create10xCards() ;
 });
 
-/*
-document.querySelector( '.js-play-deck-card' ).addEventListener( 'click', () => {
-    playDeckModal.classList.add('active');
-    overlay.classList.add('active');
-} ) ;
-*/
+
 
 //  __________ CARD GENERATION
 
-// CARD TYPE-SCORES
+// DECLARE CARD TYPES & THEIR SCORES
 
-const cardTypeScores = [
-    pawnpt_1 = 1 ,
-    pawnpt_2 = 2 ,
-    pawnpt_3 = 3 ,
+ const cardTypeScoresSet = {
+    pawnCard_1: getRandomIntInclusive(1,3) ,
+    pawnCard_2: getRandomIntInclusive(1,3) ,
+    pawnCard_3: getRandomIntInclusive(1,3) ,
 
-    heavypt_4 = 4 ,
-    heavypt_5 = 5 ,
-    heavypt_6 = 6 ,
+    heavyCard_1: getRandomIntInclusive(4,6) ,
+    heavyCard_2: getRandomIntInclusive(4,6) ,
+    heavyCard_3: getRandomIntInclusive(4,6) ,
 
-    officerpt_7 = 7 ,
-    officerpt_8 = 8 ,
-    officerpt_9 = 9 ,
-    officerpt_10 = 10 ,
+    officerCard_1: getRandomIntInclusive(7,10) ,
+    officerCard_2: getRandomIntInclusive(7,10) ,
+    officerCard_3: getRandomIntInclusive(7,10) ,
+    officerCard_4: getRandomIntInclusive(7,10) ,
 
-    generalpt_9 = 11 ,
-    generalpt_9 = 12 ,
-    generalpt_9 = 13 ,
-    generalpt_9 = 14 ,
+    generalCard_1: getRandomIntInclusive(11,14) ,
+    generalCard_2: getRandomIntInclusive(11,14) ,
+    generalCard_3: getRandomIntInclusive(11,14) ,
+    generalCard_4: getRandomIntInclusive(11,14) ,
 
-    lordpt_10 = 15 ,
+    lordCard_1: 15 ,
 /*
     specialpt_11 = undefined ,
 
     factionpt_12 = undefined,*/
- ] ;
+  } ;
 
 
 
 // CARD COLLECTION
 
 var cardCreate = {
-    cardPawn_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(0,2)] + 'pt-card.png\">'  + '</div>' ,
-    cardPawn_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(0,2)] + 'pt-card.png\">'  + '</div>' ,
-    cardPawn_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(0,2)] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_2'] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_3'] + 'pt-card.png\">'  + '</div>' ,
 
-    
-    cardHeavy_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(3,5)] + 'pt-card.png\">'  + '</div>' ,
-    cardHeavy_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(3,5)] + 'pt-card.png\">'  + '</div>' ,
-    cardHeavy_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(3,5)] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_2'] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_3'] + 'pt-card.png\">'  + '</div>' ,
 
-    
-    cardOfficer_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(6,9)] + 'pt-card.png\">'  + '</div>' ,
-    cardOfficer_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(6,9)] + 'pt-card.png\">'  + '</div>' ,
-    
-    cardGeneral_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(10,13)] + 'pt-card.png\">'  + '</div>' ,
-    
-    cardLord_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[14] + 'pt-card.png\">'  + '</div>' ,
+    cardOfficer_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardOfficer_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_2'] + 'pt-card.png\">'  + '</div>' ,
+
+    cardGeneral_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['generalCard_1'] + 'pt-card.png\">'  + '</div>' ,
+
+    cardLord_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['lordCard_1'] + 'pt-card.png\">'  + '</div>'
+/*
+    cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'+ getRandomIntInclusive(1,3) + ''] + 'pt-card.png\">'  + '</div>' ,
+
+        cardFaction_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['factionCard_1'+ getRandomIntInclusive(1,3) + ''] + 'pt-card.png\">'  + '</div>' ,*/
     /*
     cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScores[getRandomIntInclusive(0,2)] + 'pt-card.png\">'  + '</div>' ,
     
@@ -147,4 +156,3 @@ function create10xCards() {
 
 
 
-// __________ POP-UP PLAYER'S DECK IN A MODAL for easy navigation
