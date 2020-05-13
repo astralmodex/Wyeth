@@ -22,7 +22,7 @@ const playDeck = document.querySelector('.js-play-card-table') ;
 
 const P1PlayDeck = document.querySelector('.P1-play-deck') ;
 
-const playDeckCard = document.querySelector('.js-play-deck-card') ;
+const playDeckCards = document.querySelectorAll('.js-play-deck-card') ;
 
 
 
@@ -166,16 +166,14 @@ document.querySelector( '.P1-play-deck-ghost' ).addEventListener( 'click', () =>
 
 // __________ ENABLE DRAGGING CARDS for placing on ROWS
 
-function getImages(contentId) {
-    var content = document.getElementById(contentId);
-    // only one image, just return an item; or you can return an array
-    if (content) return document.getElementsByTagName('img')[0];
-
 const rowsfPlaceCards = document.querySelectorAll( '.card-table-P1' )
-console.log( draggableCards )
 
-draggableCards.forEach(draggable => {
-    draggable.addEventListener( 'dragstart', () )
+playDeckCards.forEach(draggable => {
+    draggable.addEventListener( 'dragstart', () => {
+        draggable.classList.add( 'dragging' )
+    } )
+
+    draggable.addEventListener( 'dragend' )
 } )
 
 

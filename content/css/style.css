@@ -228,6 +228,10 @@ header {
 .js-play-deck-card {
     cursor: pointer;
 }
+.js-play-deck-card.dragging {
+    background-color: turquoise;
+    opacity: 0.25;
+}
 
 .play-card img {
     height: 100px;
