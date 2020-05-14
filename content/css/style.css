@@ -215,6 +215,7 @@ header {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     background-color: #1b1b1b;
     padding: 1%;
     overflow: hidden;
@@ -225,12 +226,8 @@ header {
     overflow: hidden;
 }
 
-.js-play-deck-card {
+.js-play-deck-card-img {
     cursor: pointer;
-}
-.js-play-deck-card.dragging {
-    background-color: turquoise;
-    opacity: 0.25;
 }
 
 .play-card img {
@@ -239,10 +236,21 @@ header {
     margin: 0 2px 0 0;
 }
 
-.js-play-deck-card img {
+.play-card-table #js-play-deck-card-img {
+    height: 75px ;
+    width: 50px;
+    margin: 0 2px 0 0;
+}
+
+#js-play-deck-card-img {
     height: 175px ;
     width: 100px ;
     margin: 0 5px 0 0;
+}
+
+#js-play-deck-card-img:hover,
+#js-play-deck-card-img:active {
+    background-color: turquoise;
 }
 
 .special-card-slot,

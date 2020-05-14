@@ -22,8 +22,6 @@ const playDeck = document.querySelector('.js-play-card-table') ;
 
 const P1PlayDeck = document.querySelector('.P1-play-deck') ;
 
-const playDeckCards = document.querySelectorAll('.js-play-deck-card') ;
-
 
 
 
@@ -76,7 +74,7 @@ function init() {
 playBtn.addEventListener('click', () => {
     mainMenu.style.display = 'none' 
     overlayMainMenu.classList.remove('active')
-    create10xCards()
+    setTimeout( create10xCards , 350 )
 });
 
 
@@ -116,20 +114,20 @@ playBtn.addEventListener('click', () => {
 // CARD COLLECTION
 
 var cardCreate = {
-    cardPawn_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\"' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_1'] + 'pt-card.png\">'  + '</div>' ,
-    cardPawn_2: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_2'] + 'pt-card.png\">'  + '</div>' ,
-    cardPawn_3: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_3'] + 'pt-card.png\">'  + '</div>' ,
+    cardPawn_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_1'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
+    cardPawn_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_2'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
+    cardPawn_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['pawnCard_3'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
 
-    cardHeavy_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_1'] + 'pt-card.png\">'  + '</div>' ,
-    cardHeavy_2: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_2'] + 'pt-card.png\">'  + '</div>' ,
-    cardHeavy_3: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_3'] + 'pt-card.png\">'  + '</div>' ,
+    cardHeavy_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_1'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
+    cardHeavy_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_2'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
+    cardHeavy_3: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['heavyCard_3'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
 
-    cardOfficer_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_1'] + 'pt-card.png\">'  + '</div>' ,
-    cardOfficer_2: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_2'] + 'pt-card.png\">'  + '</div>' ,
+    cardOfficer_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_1'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
+    cardOfficer_2: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['officerCard_2'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
 
-    cardGeneral_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['generalCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardGeneral_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['generalCard_1'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>' ,
 
-    cardLord_1: '<div class=\"play-card js-play-deck-card\" draggable=\"true\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['lordCard_1'] + 'pt-card.png\">'  + '</div>' ,
+    cardLord_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['lordCard_1'] + 'pt-card.png\" id=\"js-play-deck-card-img\" draggable=\"true\">'  + '</div>'
 /* NOT YET
     cardSpecial_1: '<div class=\"play-card js-play-deck-card\">' + '<img src=\"content/img/cards/' + cardTypeScoresSet['specialCard_1'] + 'pt-card.png\">'  + '</div>' ,
 
@@ -167,14 +165,17 @@ document.querySelector( '.P1-play-deck-ghost' ).addEventListener( 'click', () =>
 // __________ ENABLE DRAGGING CARDS for placing on ROWS
 
 const rowsfPlaceCards = document.querySelectorAll( '.card-table-P1' )
+const playDeckCards = document.getElementById('js-play-deck-card-img')
 
-playDeckCards.forEach(draggable => {
-    draggable.addEventListener( 'dragstart', () => {
-        draggable.classList.add( 'dragging' )
-    } )
+document.getElementById('js-play-deck-card-img').addEventListener( 'dragstart', dragStart )
 
-    draggable.addEventListener( 'dragend' )
-} )
+function dragStart() {
+    console.log( 'start: Congratulations!' ) 
+}
+
+function dragEnd() {
+    console.log( 'end: Congratulations!' ) 
+}
 
 
 // __________ PLACE the DRAGGED CARDS ON ROWS
