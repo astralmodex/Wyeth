@@ -242,16 +242,7 @@ header {
     margin: 0 2px 0 0;
 }
 
-#js-play-deck-card-img {
-    height: 175px ;
-    width: 100px ;
-    margin: 0 5px 0 0;
-}
 
-#js-play-deck-card-img:hover,
-#js-play-deck-card-img:active {
-    background-color: turquoise;
-}
 
 .special-card-slot,
 .graveyard-slot {
@@ -349,6 +340,11 @@ header {
 .graveyard-slot .play-card img {
     height: 80px;
     width: 60px;
+}
+
+.play-card-table-Modal.active .js-play-deck-card  #js-play-deck-card-img {
+    height: 175px ;
+    width: 100px ; 
 }
 
 

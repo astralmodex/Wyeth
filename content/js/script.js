@@ -42,9 +42,9 @@ const P1PlayDeck = document.querySelector('.P1-play-deck') ;
 // REUSABLE COMPONENTS
 
 function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
   overlay.addEventListener( 'click', () => {
@@ -157,31 +157,26 @@ function create10xCards() {
 
 document.querySelector( '.P1-play-deck-ghost' ).addEventListener( 'click', () => {
     playDeckModal.classList.add( 'active' )
-    overlay.classList.add('active')
-} ) ;
+    overlay.classList.add( 'active' )
+    playDeck.classList.add( 'active' )
+
+    // __________ ENABLE DRAGGING CARDS for placing on ROWS
+
+    const rowsfPlaceCards = document.querySelectorAll( '.card-table-P1' )
+    const playDeckCard = document.querySelector('.js-play-deck-card')
 
 
 
-// __________ ENABLE DRAGGING CARDS for placing on ROWS
+    // __________ PLACE the DRAGGED CARDS ON ROWS
 
-const rowsfPlaceCards = document.querySelectorAll( '.card-table-P1' )
-const playDeckCards = document.getElementById('js-play-deck-card-img')
-
-document.getElementById('js-play-deck-card-img').addEventListener( 'dragstart', dragStart )
-
-function dragStart() {
-    console.log( 'start: Congratulations!' ) 
-}
-
-function dragEnd() {
-    console.log( 'end: Congratulations!' ) 
-}
-
-
-// __________ PLACE the DRAGGED CARDS ON ROWS
-
-/**/
+    
 
 
 
-// __________ INSERT DROPPED CARD VALUES/POINTS into ROWSCORE
+    // __________ INSERT DROPPED CARD VALUES/POINTS into ROWSCORE
+    
+
+} ) 
+
+
+
